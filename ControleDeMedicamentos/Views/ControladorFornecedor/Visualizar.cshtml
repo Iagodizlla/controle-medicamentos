@@ -1,0 +1,59 @@
+﻿﻿﻿@using ControleDeMedicamentos.Model
+
+@model VisualizarFornecedoresViewModel;
+
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Visualização de Fornecedores";
+}
+
+<style>
+    #botaoCadastrar {
+        padding: 5px 15px;
+        border: 1px solid var(--cor-principal);
+        border-radius: 9px;
+        background-color: var(--cor-principal);
+        color: var(--cor-neutra)
+    }
+
+    .card {
+        height: 200px;
+    }
+
+    .botoes-interacao {
+        display: flex;
+        gap: 10px;
+        justify-content: end;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+    .botoes-interacao > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90px;
+        height: 30px;
+        border: 1px solid var(--cor-principal);
+        border-radius: 9px;
+        background-color: var(--cor-principal);
+        color: var(--cor-neutra);
+        cursor: pointer;
+        font-size: 16px;
+    }
+</style>
+
+@foreach (var f in Model.Registros)
+{
+    <div class="card">
+        <h3>@f.Nome</h3>
+
+        <p><strong>Telefone:</strong> @f.Telefone</p>
+        <p><strong>CNPJ:</strong> @f.CNPJ</p>
+
+        <div class="botoes-interacao">
+            <a type="button" href="/fornecedores/editar/@f.Id">Editar</a>
+            <a type="button" href="/fornecedores/excluir/@f.Id">Excluir</a>
+        </div>
+    </div>
+}

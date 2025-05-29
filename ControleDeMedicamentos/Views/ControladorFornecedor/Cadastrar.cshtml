@@ -1,0 +1,26 @@
+﻿﻿﻿@using ControleDeMedicamentos.Model
+
+@model CadastrarFornecedorViewModel;
+
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Cadastro de Fornecedor";
+}
+
+<link rel="stylesheet" href="~/form.css" />
+
+<form action="/fornecedores/cadastrar" method="post">
+    <label for="nome">Nome do Fornecedor:</label>
+    <input type="text" name="nome" />
+
+    <label for="telefone">Telefone do Fornecedor:</label>
+    <input type="text" name="telefone" />
+
+    <label for="cnpj">CNPJ do Fornecedor:</label>
+    <input type="text" name="cnpj" />
+
+    <div class="botoes-interacao">
+        <a type="button" id="botaoVoltar" href="/fornecedores/visualizar">Voltar</a>
+        <button type="submit" id="botaoConfirmar">Confirmar</button>
+    </div>
+</form>
