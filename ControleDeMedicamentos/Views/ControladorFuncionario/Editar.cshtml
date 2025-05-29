@@ -1,0 +1,26 @@
+﻿﻿@using ControleDeMedicamentos.Model
+
+@model EditarFuncionarioViewModel;
+
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Edição de Funcionário";
+}
+
+<link rel="stylesheet" href="~/form.css" />
+
+<form action="/funcionarios/editar/@Model.Id" method="post">
+    <label for="nome">Nome do Funcionário:</label>
+    <input type="text" name="nome" value="@Model.Nome" />
+
+    <label for="telefone">Telefone do Funcionário:</label>
+    <input type="text" name="telefone" value="@Model.Telefone" />
+
+    <label for="cpf">CPF do Funcionário:</label>
+    <input type="text" name="cpf" value="@Model.CPF" />
+
+    <div class="botoes-interacao">
+        <a type="button" id="botaoVoltar" href="/funcionarios/visualizar">Voltar</a>
+        <button type="submit" id="botaoConfirmar">Confirmar</button>
+    </div>
+</form>

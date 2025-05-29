@@ -1,0 +1,19 @@
+﻿﻿@using ControleDeMedicamentos.Model
+
+@model ExcluirFuncionarioViewModel;
+
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Exclusão de Funcionário";
+}
+
+<link rel="stylesheet" href="~/form.css" />
+
+<form action="/funcionarios/excluir/@Model.Id" method="post">
+    <p>Você deseja realmente excluir o registro "@Model.Nome?"</p>
+
+    <div class="botoes-interacao">
+        <a type="button" id="botaoVoltar" href="/funcionarios/visualizar">Voltar</a>
+        <button type="submit" id="botaoConfirmar">Confirmar</button>
+    </div>
+</form>
