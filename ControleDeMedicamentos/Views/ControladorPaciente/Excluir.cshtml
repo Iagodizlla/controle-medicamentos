@@ -1,0 +1,18 @@
+﻿﻿@using ControleDeMedicamentos.Model
+
+@model ExcluirPacienteViewModel;
+
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Exclusão de Paciente";
+}
+
+<link rel="stylesheet" href="~/form.css" />
+
+<form action="/pacientes/excluir/@Model.Id" method="post">
+    <p>Tem certeza que deseja excluir o paciente <strong>@Model.Nome</strong>?</p>
+    <div class="botoes-interacao">
+        <a type="button" id="botaoVoltar" href="/pacientes/visualizar">Voltar</a>
+        <button type="submit" id="botaoConfirmar">Excluir</button>
+    </div>
+</form>

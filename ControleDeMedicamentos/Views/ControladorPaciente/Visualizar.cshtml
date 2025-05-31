@@ -1,0 +1,70 @@
+﻿﻿@using ControleDeMedicamentos.Model
+
+@model VisualizarPacientesViewModel;
+
+@{
+    Layout = "_Layout";
+    ViewBag.Titulo = "Visualização de Pacientes";
+}
+
+<style>
+    #botaoCadastrar {
+        padding: 10px 20px;
+        width: 200px;
+        border: 1px solid var(--cor-principal);
+        border-radius: 9px;
+        background-color: var(--cor-principal);
+        color: var(--cor-neutra);
+
+        text-align: center;
+    }
+
+    .secao-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .card {
+        height: 200px;
+    }
+
+    .botoes-interacao {
+        display: flex;
+        gap: 10px;
+        justify-content: end;
+        align-items: center;
+        margin-top: 30px;
+    }
+
+        .botoes-interacao > a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 90px;
+            height: 30px;
+            border: 1px solid var(--cor-principal);
+            border-radius: 9px;
+            background-color: var(--cor-principal);
+            color: var(--cor-neutra);
+            cursor: pointer;
+            font-size: 16px;
+        }
+</style>
+
+<a href="/pacientes/cadastrar" type="button" id="botaoCadastrar">Cadastrar Novo Paciente</a>
+
+<div class="secao-cards">
+    @foreach (var p in Model.Registros)
+    {
+        <div class="card">
+            <h3>@p.Nome</h3>
+            <p><strong>Telefone:</strong> @p.Telefone</p>
+            <p><strong>Cartão SUS:</strong> @p.CartaoSus</p>
+            <div class="botoes-interacao">
+                <a type="button" href="/pacientes/editar/@p.Id">Editar</a>
+                <a type="button" href="/pacientes/excluir/@p.Id">Excluir</a>
+            </div>
+        </div>
+    }
+</div>
